@@ -13,8 +13,8 @@ const userRouter = express.Router()
 userRouter.get("/users", userController.getAllusers);
 userRouter.get("/user/:id" ,userController.getUser)
 userRouter.post("/users", userValidator.validateUserData, userController.addNewUser)
-userRouter.put("/users/:id", userValidator.validateUserData, userController.updateUser)
-userRouter.delete("/users/:id", userValidator.validateUserData, userController.deleteUser)
+userRouter.put("/users/:id",  userController.updateUser)
+userRouter.delete("/users/:id",  userController.deleteUser)
 
 
 export default userRouter;
