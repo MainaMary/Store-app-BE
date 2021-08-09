@@ -13,7 +13,7 @@ class UserController{
 
     getAllusers(req, res){
         const user= new UserModel();
-        const users = user.getAllusers()
+        const users = user.getAllUsers()
         return res.status(200).send({
             data: users
         })
@@ -46,22 +46,4 @@ class UserController{
 
 export default UserController;
 
-// import { request } from "express"
 
-// export const getUsers = (req, res)=>{
-//     return res.status(200).json({data: "JohnDoe"})
-// }
-
-// const users = [
-//     {id: 1, name: "doe"},
-//     {id: 2, name:"Bezzos"}
-// ]
-// export const postUsers = (req, res)=>{
-//     const user ={
-//         id: users.length + 1,
-//         name: req.body.name
-//     }
-//     users.push(user)
-
-//    return res.send(user)
-// }
