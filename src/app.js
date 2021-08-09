@@ -1,5 +1,5 @@
 import express from 'express';
-
+import routes from './modules'
 const app = express();
 
 app.use(
@@ -8,7 +8,10 @@ app.use(
     extended: true,
   }),
 );
+
 app.use(express.json());
+
+routes(app)
 
 // catch all routers
 app.use('*', (req, res) =>
