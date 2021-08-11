@@ -29,7 +29,7 @@ class UserController{
     }
     updateUser(req, res){
       const user= new UserModel
-      const userExists= user.updateSingleUser({key: "id", value: parseInt(req.params.id)})
+      const userExists= user.updateSingleUser(parseInt(req.params.id),req.body)
       return res.status(200).send({
           data: userExists
       })
@@ -37,7 +37,8 @@ class UserController{
 
     deleteUser(req, res){
         const user = new UserModel
-        const userDelete =deleteUser(id)
+        const {id} = req.params
+        const userDelete = user.deleteUser(id)
         return res.send(200).send({
             data: userDelete
         })

@@ -32,16 +32,19 @@ class User {
     const user = allUsers.find(user=>{user[key]=== value})
     return user
   }
-  updateSingleUser(reqData,updateData){
-    const singleUser= allUsers.find(user => {
-      user.id === parseInt(req.params.id)
+  updateSingleUser(id,updateData){
+ allUsers.forEach(user => {
+     if( user.id === id){
+      const {email, userName, password} = updateData
+    user.email = email
+    user.userName= userName
+    user.password= password
+      return user
+     }
     })
-    const {params} = req.body
-    singleUser.email = params
-    singleUser.userName= params
-    singleUser.password= params
+    
 
-    return singleUser
+   
   //   const {key, value} = reqData
     
   // const singleUser = allUsers.forEach(user => {
@@ -57,7 +60,7 @@ class User {
 
   deleteUser(id){
     const user =allUsers.filter(user => user.id !== id)
-   return user
+   return {id}
   }
 
   

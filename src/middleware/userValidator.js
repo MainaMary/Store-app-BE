@@ -43,9 +43,11 @@ class userValidator {
         return next()
         
     }
+   
     validateUserExists(req, res,next){
-        const {Id} = req.params;
-        const user = getSingeleUser({key:"Id",value:Id})
+        const user = getSingeleUser({key:"id",value:id})
+        const {id} = req.params;
+       
     
         if (!user){
             return res.status(400).send({
