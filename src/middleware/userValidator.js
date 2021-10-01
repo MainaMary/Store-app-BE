@@ -45,16 +45,18 @@ class userValidator {
     }
    
     validateUserExists(req, res,next){
-        const user = getSingeleUser({key:"id",value:id})
-        const {id} = req.params;
+      
+        const {id}= req.params;
        
-    
+        const user = userModel.getSingleUser(
+            {key:"id",value:id}
+        )
         if (!user){
             return res.status(400).send({
                 errorMessage: 'user does not exist'
             })
         }
-        next()
+       return next()
         }
 
 

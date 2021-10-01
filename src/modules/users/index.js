@@ -11,7 +11,7 @@ const userValidator = new UserValidator()
 const userRouter = express.Router()
 
 userRouter.get("/users", userController.getAllusers);
-userRouter.get("/user/:id" ,userValidator.validateUserExists, userController.getUser)
+userRouter.get("/users/:id" ,userValidator.validateUserExists, userController.getUser)
 userRouter.post("/users", userValidator.validateUserData, userController.addNewUser)
 userRouter.put("/users/:id", userValidator.validateUserExists, userController.updateUser)
 userRouter.delete("/users/:id",userValidator.validateUserExists,  userController.deleteUser)

@@ -32,6 +32,7 @@ class User {
     const user = allUsers.find(user=>{user[key]=== value})
     return user
   }
+  
   updateSingleUser(id,updateData){
  allUsers.forEach(user => {
      if( user.id === id){
