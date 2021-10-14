@@ -11,10 +11,10 @@ const userValidator = new UserValidator()
 const userRouter = express.Router()
 
 userRouter.get("/users", userController.getAllusers);
-userRouter.get("/users/:id" ,userValidator.validateUserExists, userController.getUser)
+userRouter.get("/users/:id" , userController.getUser)
 userRouter.post("/users", userValidator.validateUserData, userController.addNewUser)
-userRouter.put("/users/:id", userValidator.validateUserExists, userController.updateUser)
-userRouter.delete("/users/:id",userValidator.validateUserExists,  userController.deleteUser)
+userRouter.put("/users/:id",  userController.updateUser, userValidator.validateUserExists,)
+userRouter.delete("/users/:id",  userController.deleteUser)
 
 
 export default userRouter;

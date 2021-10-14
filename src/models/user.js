@@ -27,41 +27,33 @@ class User {
     return allUsers
   }
 
-  getSingleUser(reqData){
-    const {key, value}= reqData;
-    const user = allUsers.find(user=>{user[key]=== value})
+  getSingleUser(id){
+    console.log(typeof id);
+  const user = allUsers.find(user => user.id === parseInt(id))
     return user
   }
   
   updateSingleUser(id,updateData){
  allUsers.forEach(user => {
-     if( user.id === id){
+     if( user.id === parseInt(id)){
       const {email, userName, password} = updateData
     user.email = email
     user.userName= userName
     user.password= password
-      return user
+    console.log(user)
+    return user
      }
+    
     })
-    
-
    
-  //   const {key, value} = reqData
-    
-  // const singleUser = allUsers.forEach(user => {
-  //   if(user.key === value){
-  //      user.email=updateData.email
-  //      user.password =updateData.password
-   //       user.userName = updateData.userName
-  //   }
-  // } )
-  // return singleUser
   }
 
 
   deleteUser(id){
-    const user =allUsers.filter(user => user.id !== id)
-   return {id}
+    const user = allUsers.findIndex(user => user.id === parseInt(id));
+    const deletedUser = allUsers.splice(user, 1);
+  // const user =allUsers.filter(user => user.id !== parseInt(id))
+   return deletedUser
   }
 
   
