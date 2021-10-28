@@ -21,15 +21,16 @@ class UserController{
 
     getUser(req, res){
         const {id}= req.params;
+        console.log(typeof id);
         const user= new UserModel;
-        const userExists= user.getSingleUser({key: "id", value: parseInt(id)})
+        const userExists= user.getSingleUser(id)
         return res.status(200).send({
             data: userExists
         })
     }
     updateUser(req, res){
       const user= new UserModel
-      const userExists= user.updateSingleUser({key: "id", value: parseInt(req.params.id)})
+      const userExists= user.updateSingleUser(parseInt(req.params.id),req.body)
       return res.status(200).send({
           data: userExists
       })
@@ -37,8 +38,9 @@ class UserController{
 
     deleteUser(req, res){
         const user = new UserModel
-        const userDelete =deleteUser(id)
-        return res.send(200).send({
+        const {id} = req.params
+        const userDelete = user.deleteUser(id)
+        return res.status(200).send({
             data: userDelete
         })
     }
