@@ -22,7 +22,7 @@ class UserController{
     getUser(req, res){
         const {id}= req.params;
         console.log(typeof id);
-        const user= new UserModel;
+        const user= new UserModel();
         const userExists= user.getSingleUser(id)
         return res.status(200).send({
             data: userExists
